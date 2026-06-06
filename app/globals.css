@@ -1,0 +1,687 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+    outline-color: var(--ring);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
+
+@layer components {
+  .app-page {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  .app-surface {
+    background-color: var(--card);
+    color: var(--card-foreground);
+    border-color: var(--border);
+  }
+
+  .app-card-surface {
+    background-color: var(--card);
+    color: var(--card-foreground);
+    border-color: rgb(203 213 225 / 0.5);
+    background-image: linear-gradient(
+      to bottom,
+      rgb(239 246 255 / 0.5),
+      rgb(248 250 252 / 0.5)
+    );
+  }
+
+  .dark .app-card-surface {
+    border-color: rgb(71 85 105 / 0.5);
+    background-image: linear-gradient(
+      to bottom,
+      rgb(23 37 84 / 0.2),
+      rgb(2 6 23 / 0.2)
+    );
+  }
+
+  .app-risk-surface {
+    background-color: var(--card);
+    background-image: none;
+    color: var(--card-foreground);
+    border-color: rgb(203 213 225 / 0.55);
+  }
+
+  .dark .app-risk-surface {
+    background-color: rgb(17 20 28);
+    border-color: rgb(51 65 85 / 0.7);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.025);
+  }
+
+  .app-surface-muted {
+    background-color: var(--muted);
+    color: var(--foreground);
+    border-color: var(--border);
+  }
+
+  .app-field {
+    background-color: var(--background);
+    color: var(--foreground);
+    border-color: var(--input);
+  }
+
+  .dark
+    :where(
+      input:not([type]),
+      input[type="date"],
+      input[type="datetime-local"],
+      input[type="email"],
+      input[type="month"],
+      input[type="number"],
+      input[type="password"],
+      input[type="search"],
+      input[type="tel"],
+      input[type="text"],
+      input[type="time"],
+      input[type="url"],
+      input[type="week"],
+      select,
+      textarea,
+      [data-slot="input"],
+      [data-slot="select-trigger"],
+      [data-slot="textarea"],
+      .app-field,
+      .app-form-field,
+      .profile-form-field
+    ) {
+    background-color: black !important;
+    color: white !important;
+    border-color: rgb(51 65 85) !important;
+  }
+
+  .dark
+    :where(
+      input:not([type]),
+      input[type="date"],
+      input[type="datetime-local"],
+      input[type="email"],
+      input[type="month"],
+      input[type="number"],
+      input[type="password"],
+      input[type="search"],
+      input[type="tel"],
+      input[type="text"],
+      input[type="time"],
+      input[type="url"],
+      input[type="week"],
+      textarea,
+      [data-slot="input"],
+      [data-slot="textarea"],
+      .app-field,
+      .app-form-field,
+      .profile-form-field
+    )::placeholder {
+    color: rgb(148 163 184) !important;
+  }
+
+  .dark :where(select, .app-form-field, .profile-form-field) option {
+    background-color: black !important;
+    color: white !important;
+  }
+
+  .dark :where([data-slot="select-content"], [data-slot="select-viewport"]) {
+    background-color: black !important;
+    color: white !important;
+    border-color: rgb(51 65 85) !important;
+  }
+
+  .dark :where([data-slot="select-item"]) {
+    color: white !important;
+  }
+
+  .dark
+    :where(
+      [data-slot="select-item"]:hover,
+      [data-slot="select-item"][data-highlighted]
+    ) {
+    background-color: rgb(30 41 59) !important;
+    color: white !important;
+  }
+
+  .app-form-field,
+  .profile-form-field {
+    background-color: white;
+    color: rgb(15 23 42);
+    border-color: rgb(226 232 240);
+  }
+
+  html:not(.dark)
+    :where(
+      .app-form-field,
+      .profile-form-field,
+      select.app-form-field,
+      textarea.app-form-field,
+      [data-slot="input"].app-form-field,
+      [data-slot="textarea"].app-form-field,
+      [data-slot="select-trigger"].app-form-field
+    ) {
+    background-color: white !important;
+  }
+
+  .app-form-field::placeholder,
+  .profile-form-field::placeholder {
+    color: rgb(100 116 139);
+  }
+
+  .app-form-panel,
+  .profile-form-panel {
+    background-color: var(--muted);
+    color: var(--foreground);
+    border-color: var(--border);
+  }
+
+  .app-choice-row,
+  .profile-choice-row {
+    background-color: rgb(248 250 252);
+    color: rgb(15 23 42);
+    border-color: rgb(226 232 240);
+  }
+
+  .app-choice-row:hover,
+  .profile-choice-row:hover {
+    background-color: rgb(239 246 255);
+  }
+
+  .app-choice-input,
+  .profile-choice-input {
+    background-color: white;
+    border-color: rgb(203 213 225);
+  }
+
+  .dark .app-form-field,
+  .dark .profile-form-field,
+  .dark .app-select-content,
+  .dark .profile-select-content {
+    background-color: black !important;
+    color: white !important;
+    border-color: rgb(51 65 85) !important;
+  }
+
+  .dark .app-form-field::placeholder,
+  .dark .profile-form-field::placeholder {
+    color: rgb(148 163 184) !important;
+  }
+
+  .dark .app-form-field option {
+    background-color: black;
+    color: white;
+  }
+
+  .dark .app-form-panel,
+  .dark .profile-form-panel {
+    background-color: transparent;
+    color: white;
+    border-color: rgb(51 65 85);
+  }
+
+  .dark .app-choice-row,
+  .dark .profile-choice-row {
+    background-color: black;
+    color: white;
+    border-color: rgb(51 65 85);
+  }
+
+  .dark .app-choice-row:hover,
+  .dark .profile-choice-row:hover {
+    background-color: rgb(15 23 42);
+  }
+
+  .dark .app-choice-input,
+  .dark .profile-choice-input {
+    background-color: black;
+    border-color: rgb(100 116 139);
+  }
+
+  .dark .app-select-item,
+  .dark .profile-select-item {
+    color: white !important;
+  }
+
+  .dark .app-select-item[data-highlighted],
+  .dark .profile-select-item[data-highlighted] {
+    background-color: rgb(30 41 59) !important;
+    color: white !important;
+  }
+
+  .app-readonly {
+    cursor: default;
+    caret-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .app-readonly a,
+  .app-readonly button,
+  .app-readonly select,
+  .app-readonly [role="button"] {
+    cursor: pointer;
+  }
+
+  .app-readonly input:not([readonly]),
+  .app-readonly textarea:not([readonly]) {
+    caret-color: auto;
+    user-select: auto;
+    -webkit-user-select: auto;
+  }
+
+  select {
+    color-scheme: light dark;
+  }
+
+  select option {
+    background-color: var(--popover);
+    color: var(--popover-foreground);
+  }
+
+  .dashboard-readonly {
+    cursor: default;
+    caret-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .dashboard-readonly a,
+  .dashboard-readonly button,
+  .dashboard-readonly input,
+  .dashboard-readonly textarea,
+  .dashboard-readonly [role="button"],
+  .dashboard-readonly [contenteditable="true"] {
+    caret-color: auto;
+    user-select: text;
+    -webkit-user-select: text;
+  }
+
+  .dashboard-readonly a,
+  .dashboard-readonly button,
+  .dashboard-readonly [role="button"] {
+    cursor: pointer;
+  }
+}
+
+@layer utilities {
+  /* Gradient animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes glow {
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInFromLeft 0.6s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInFromRight 0.6s ease-out;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .fade-in-up-delay-100 {
+    animation: fadeInUp 0.6s ease-out 0.1s both;
+  }
+
+  .fade-in-up-delay-200 {
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+  }
+
+  .fade-in-up-delay-300 {
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+  }
+}
+
+/* KPI card dark mode — @layer-аас гадна байрлуулсан тул давамгайлна */
+/* ── Dark mode card overrides (outside @layer to win cascade) ── */
+
+/* Dashboard KPI cards */
+html.dark .kpi-card {
+  background-color: rgb(30 41 59) !important;
+  border-color: rgb(51 65 85) !important;
+}
+html.dark .kpi-card .text-foreground { color: rgb(248 250 252) !important; }
+html.dark .kpi-card .text-muted-foreground { color: rgb(148 163 184) !important; }
+
+/* Global: bg-white → bg-card in dark mode */
+html.dark .bg-white {
+  background-color: var(--card) !important;
+  color: var(--card-foreground) !important;
+}
+
+/* Global: bg-gray-50, bg-gray-100, bg-slate-50 → muted in dark mode */
+html.dark .bg-gray-50,
+html.dark .bg-gray-100,
+html.dark .bg-slate-50 {
+  background-color: var(--muted) !important;
+}
+
+/* Global: status/severity light bg → dark equivalents */
+html.dark .bg-red-50    { background-color: rgb(69 10 10 / 0.6) !important; }
+html.dark .bg-orange-50 { background-color: rgb(67 20 7  / 0.6) !important; }
+html.dark .bg-amber-50  { background-color: rgb(69 26 3  / 0.6) !important; }
+html.dark .bg-yellow-50 { background-color: rgb(66 32 6  / 0.6) !important; }
+html.dark .bg-blue-50   { background-color: rgb(8  47 73 / 0.6) !important; }
+html.dark .bg-indigo-50 { background-color: rgb(30 27 75 / 0.6) !important; }
+html.dark .bg-green-50  { background-color: rgb(5  46 22 / 0.6) !important; }
+html.dark .bg-rose-50   { background-color: rgb(69 10 10 / 0.6) !important; }
+html.dark .bg-slate-100 { background-color: rgb(30 41 59) !important; }
+
+/* Assets page KPI cards — placed after bg-*-50 globals so they win cascade */
+html.dark .asset-kpi-card {
+  background-color: rgb(30 41 59) !important;
+  border-color: rgb(51 65 85) !important;
+}
+html.dark .asset-kpi-card .text-sm { color: rgb(248 250 252) !important; }
+html.dark .asset-kpi-card .text-xs { color: rgb(148 163 184) !important; }
+
+/* Risk register dark mode: scoped overrides so global bg-slate-50 rules do not flatten the page. */
+html.dark .risk-register-page {
+  background:
+    radial-gradient(circle at 12% 0%, rgb(30 41 59 / 0.28), transparent 30rem),
+    rgb(5 8 18) !important;
+  color: rgb(248 250 252) !important;
+}
+
+html.dark .risk-register-page :where(.bg-white, .bg-slate-50, .bg-slate-100) {
+  background-color: rgb(15 20 32) !important;
+  color: rgb(248 250 252) !important;
+}
+
+html.dark .risk-register-page :where(.bg-slate-900, .bg-slate-950) {
+  background-color: rgb(9 13 24) !important;
+}
+
+html.dark .risk-register-page :where(.border-border, .border-slate-800, .border-slate-200) {
+  border-color: rgb(51 65 85 / 0.85) !important;
+}
+
+html.dark .risk-register-page :where(.text-slate-950, .text-slate-900, .text-slate-800, .text-slate-700, .text-gray-700, .text-gray-600) {
+  color: rgb(248 250 252) !important;
+}
+
+html.dark .risk-register-page :where(.text-slate-600, .text-slate-500, .text-gray-500, .text-muted-foreground) {
+  color: rgb(203 213 225) !important;
+}
+
+html.dark .risk-register-page :where(.text-blue-700) {
+  color: rgb(96 165 250) !important;
+}
+
+html.dark .risk-register-page :where(.text-emerald-700) {
+  color: rgb(110 231 183) !important;
+}
+
+html.dark .risk-register-page :where(.text-amber-700, .text-amber-900) {
+  color: rgb(252 211 77) !important;
+}
+
+html.dark .risk-register-page :where(.text-red-700) {
+  color: rgb(252 165 165) !important;
+}
+
+html.dark .risk-register-page .app-risk-surface {
+  background-color: rgb(13 18 31) !important;
+  color: rgb(248 250 252) !important;
+  border-color: rgb(51 65 85 / 0.9) !important;
+}
+
+.risk-register-page {
+  background-color: rgb(248 250 252);
+}
+
+.dark .app-page:has(.risk-register-page) {
+  background-color: rgb(5 8 18) !important;
+}
+
+.dark .risk-register-page {
+  background:
+    radial-gradient(circle at 12% 0%, rgb(30 41 59 / 0.28), transparent 30rem),
+    rgb(5 8 18) !important;
+  color: rgb(248 250 252) !important;
+}
+
+.dark .risk-register-page :where(.bg-white, .bg-slate-50, .bg-slate-100, .bg-gray-50, .bg-gray-100) {
+  background-color: rgb(15 20 32) !important;
+  color: rgb(248 250 252) !important;
+}
+
+.dark .risk-register-page :where(.bg-slate-900, .bg-slate-950) {
+  background-color: rgb(9 13 24) !important;
+}
+
+.dark .risk-register-page :where(.border-border, .border-slate-800, .border-slate-200) {
+  border-color: rgb(51 65 85 / 0.85) !important;
+}
+
+.dark .risk-register-page :where(.text-slate-950, .text-slate-900, .text-slate-800, .text-slate-700, .text-gray-700, .text-gray-600) {
+  color: rgb(248 250 252) !important;
+}
+
+.dark .risk-register-page :where(.text-slate-600, .text-slate-500, .text-gray-500, .text-muted-foreground) {
+  color: rgb(203 213 225) !important;
+}
+
+.dark .risk-register-page :where(.text-blue-700) {
+  color: rgb(96 165 250) !important;
+}
+
+.dark .risk-register-page :where(.text-emerald-700) {
+  color: rgb(110 231 183) !important;
+}
+
+.dark .risk-register-page :where(.text-amber-700, .text-amber-900) {
+  color: rgb(252 211 77) !important;
+}
+
+.dark .risk-register-page :where(.text-red-700) {
+  color: rgb(252 165 165) !important;
+}
+
+.dark .risk-register-page .app-risk-surface {
+  background-color: rgb(13 18 31) !important;
+  color: rgb(248 250 252) !important;
+  border-color: rgb(51 65 85 / 0.9) !important;
+}
+
+/* Custom utility classes */
+.glass {
+  backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background-color: rgba(5, 5, 10, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+  backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+}
+
+.dark .glass-card {
+  background-color: rgba(5, 5, 10, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.gradient-text {
+  background: linear-gradient(
+    to right,
+    rgb(147, 51, 234),
+    rgb(59, 130, 246),
+    rgb(6, 182, 212)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.hover-lift {
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  transform: scale(1.05) translateY(-4px);
+}
+
+.hover-glow {
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-glow:hover {
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.focus-ring:focus {
+  outline: none;
+  box-shadow:
+    0 0 0 2px white,
+    0 0 0 4px rgb(59, 130, 246);
+}
+
+.dark .focus-ring:focus {
+  box-shadow:
+    0 0 0 2px rgb(5, 5, 10),
+    0 0 0 4px rgb(59, 130, 246);
+}

@@ -1,0 +1,179 @@
+{
+  "sourceName": "mitre_attack_enterprise",
+  "defaultJsonPath": "C:/Users/user/Downloads/enterprise-attack-19.0.json",
+  "include": {
+    "platforms": [
+      "Windows",
+      "Linux",
+      "macOS",
+      "Network Devices",
+      "Office Suite",
+      "SaaS",
+      "IaaS",
+      "Identity Provider",
+      "Containers"
+    ],
+    "tactics": [
+      "initial-access",
+      "execution",
+      "persistence",
+      "privilege-escalation",
+      "defense-evasion",
+      "credential-access",
+      "discovery",
+      "lateral-movement",
+      "collection",
+      "command-and-control",
+      "exfiltration",
+      "impact"
+    ],
+    "keywords": []
+  },
+  "exclude": {
+    "techniqueIds": [],
+    "platforms": ["PRE"],
+    "tactics": [],
+    "keywords": [
+      "air-gapped",
+      "avionics",
+      "mainframe",
+      "satellite",
+      "spacecraft"
+    ]
+  },
+  "assetTypeMappings": {
+    "Application": {
+      "platforms": ["Windows", "Linux", "macOS", "SaaS", "IaaS", "Containers"],
+      "tactics": [
+        "initial-access",
+        "execution",
+        "credential-access",
+        "exfiltration",
+        "impact"
+      ],
+      "keywords": ["application", "web", "api", "browser", "script", "cloud"]
+    },
+    "API": {
+      "platforms": ["SaaS", "IaaS", "Containers", "Linux", "Windows"],
+      "tactics": [
+        "initial-access",
+        "credential-access",
+        "collection",
+        "exfiltration"
+      ],
+      "keywords": ["api", "token", "credential", "cloud", "web service"]
+    },
+    "Database": {
+      "platforms": ["Windows", "Linux", "IaaS", "SaaS"],
+      "tactics": ["credential-access", "collection", "exfiltration", "impact"],
+      "keywords": ["database", "sql", "data", "dump", "exfiltration"]
+    },
+    "Endpoint Fleet": {
+      "platforms": ["Windows", "Linux", "macOS"],
+      "tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation",
+        "defense-evasion",
+        "credential-access",
+        "discovery",
+        "impact"
+      ],
+      "keywords": [
+        "endpoint",
+        "malware",
+        "powershell",
+        "registry",
+        "process",
+        "file",
+        "user"
+      ]
+    },
+    "Identity Provider": {
+      "platforms": ["Identity Provider", "SaaS", "Office Suite"],
+      "tactics": [
+        "initial-access",
+        "credential-access",
+        "persistence",
+        "defense-evasion"
+      ],
+      "keywords": [
+        "identity",
+        "account",
+        "credential",
+        "password",
+        "mfa",
+        "oauth",
+        "token"
+      ]
+    },
+    "Network": {
+      "platforms": ["Network Devices", "Windows", "Linux"],
+      "tactics": [
+        "discovery",
+        "lateral-movement",
+        "command-and-control",
+        "exfiltration",
+        "impact"
+      ],
+      "keywords": ["network", "proxy", "dns", "traffic", "remote", "vpn"]
+    },
+    "Infrastructure": {
+      "platforms": [
+        "Windows",
+        "Linux",
+        "IaaS",
+        "Containers",
+        "Network Devices"
+      ],
+      "tactics": [
+        "privilege-escalation",
+        "defense-evasion",
+        "discovery",
+        "lateral-movement",
+        "impact"
+      ],
+      "keywords": [
+        "server",
+        "cloud",
+        "virtual",
+        "container",
+        "service",
+        "admin"
+      ]
+    },
+    "SaaS Tenant": {
+      "platforms": ["SaaS", "Office Suite", "Identity Provider"],
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "credential-access",
+        "collection",
+        "exfiltration"
+      ],
+      "keywords": ["saas", "cloud", "email", "share", "oauth", "account"]
+    },
+    "Email System": {
+      "platforms": ["Office Suite", "SaaS", "Windows", "macOS"],
+      "tactics": [
+        "initial-access",
+        "execution",
+        "credential-access",
+        "collection",
+        "exfiltration"
+      ],
+      "keywords": ["email", "phishing", "attachment", "link", "mail", "office"]
+    },
+    "Web Server": {
+      "platforms": ["Windows", "Linux", "IaaS", "Containers"],
+      "tactics": [
+        "initial-access",
+        "execution",
+        "persistence",
+        "defense-evasion",
+        "impact"
+      ],
+      "keywords": ["web", "server", "http", "script", "service"]
+    }
+  }
+}

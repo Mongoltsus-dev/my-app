@@ -31,7 +31,10 @@
     "zod": "^3.25.76"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["@parcel/watcher", "@swc/core", "bcrypt", "msw"]
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "@swc/core"
+    ]
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
